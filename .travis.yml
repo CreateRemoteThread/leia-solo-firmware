@@ -27,7 +27,6 @@ script:
 - export PATH=$PWD/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
 - make clean
 - build-wrapper-linux-x86-64 --out-dir bw-output make all
-- sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output -Dsonar.projectKey=h2lab_leia-solo-firmware
-  -Dsonar.organization=h2lab
+- sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output -Dsonar.projectKey=h2lab_leia-solo-firmware -Dsonar.organization=h2lab -Dsonar.login=${SONAR_TOKEN}
 notifications:
   email: false
