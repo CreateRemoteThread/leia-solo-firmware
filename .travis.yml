@@ -13,7 +13,7 @@ addons:
   sonarcloud:
     organization: "h2lab"
     token:
-      secure: "EjzlRDkCWlDhLI9V1oNrI6cn/dri1rzJ9NYiA/Yu31EylMEnO9oprBygaDESrdMBjPRtdlecI+qFiAPbeHIV/6bk3LtDlj5EH9PK2s5vBGFbLV1Clw1c2AVRcBfWLEGvzoBewY/gMM5g+u68Tuv1SkLdbqiP+U9dS1dxPBioHShV+BJXD+m4hGd2Akg5HzmleV4VZcZ68VOzJIsn8aAR+DQqC+knde/K/qrd5PRNFN7evG0mINXKJh9Hmjls6tBPsOUUI0i6anowy9V5Xow4FXhigWRouK4wCUP9bhkX8Uvs/Ey5qj3mcNHD4urootiIijQglB+uUEQTNnVYPaYyT7sQPOfpSa+bXR3uBUyfmc5TYvOBQoaK5r4FesfkpsGOzZrKud4W63jQ6udvKoyy5gRgdve8j4kUwc+Lu7nIkmojw6FD6QydqMUY+tOtpXnjODGJp+zZv8L/wt9SUTDEnzWOFsnicqq1tcm+bD5pNH1EWR4erRhzJYq3pXsgoujOE8tDWkyixcptE0Bme0FmHvvUOCDyxv9twaeq8/L1rvdcplQKRI0jLtRXWldHeOLSWpoWcXEw2PLKP2UuPOENG57xZtl/IvO6h9TXWEollzo3IXSBmek1RQBAWjKGnwxUpNRVXXTPR1ZlQikI3vhxRCD6uJyVk68LsmnxCG6DnC8="
+      secure: "CWEwzTXee5whyoJxHXZY/KOHO9iu01sseDL//PX7atotwU6OjrXp5hhAQoiNNufMSh73VfRuz/V88CbXVTk2oijcpdyq6BFbpDzjWSqdy2ME7M9/Hph1ax+asH6kCiT7Qdf5NWFe//ej1P6QEIN7X4789+UOvT0qHVLGbaGzCYy6oSz/KTkvOvJ5KQxcFLQY4680uPPjwoNbXY6A4c7ucwiVFIIJEQ1wkE59/xTeDCT1eA7xxI+jkbJTEBx1bXCjt5x8UI2pNg8VVFazcxQkMh7eyc8Z7VW6mOnF74IUfMxKHeU4k7aAzRVOsRTVFYoNQpdkfwhRZtpOYQd2Q4w4rhW74L/q+jK5IUwWrPA/j+y157fvdyKEX+Ybv1+dJci4zpzeGw0N5qr7bh4WnYmz2o1VjcIMwAD4CssAzSDLmYBZV+CnVaHJq50B+Ro+JjJ9zoUO262KlZ5xqXqETGNelUc8V7uqQNKF+YwAphIuDRQ4DAahFm/j7xjgeC49sxDkAkVwlMnuvohb5Ij1XZYFy7tLyDTC3S53RrZRRaGDEFVH4S3riEF+HArZl7DeZb+nvd8w2UFM2L+Ma1gGXoKw2uKnfGvSlibyWflMWycz0QcHXupzko89I8afPgurk/egq77XSx9QqAHemNWGcNVM0ZvysM2k/vT0aNjfdhnB45I="
 
 
 # requested env for cross-compilation
@@ -35,10 +35,6 @@ script:
   # And finally run the SonarCloud analysis - read the "sonar-project.properties"
   # file to see the specific configuration
   - sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output
-
-cache:
-  directories:
-    - '$HOME/.sonar/cache'
 
 notifications:
   email: false
