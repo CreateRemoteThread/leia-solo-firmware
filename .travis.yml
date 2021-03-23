@@ -1,0 +1,31 @@
+language: c
+addons:
+  apt:
+    update: true
+    packages:
+    - make
+    - gcc
+    - build-essential
+    - libc6-dev
+    - libgcc1
+    - wget
+    - bzip2
+  sonarcloud:
+    organization: h2lab
+    token:
+      secure: McSAti9uRUbPbWYFrfBXnuOGc9KSenPr/c3SuQzV5DI775DuZYrB2FoqUVdU/cjSKtVQWqqnabQPLmHUe5yD3pBMMNhVLt1uvxw+k1BxOJBsmBnqR++bq9oLvcHGHie8JHGAVQo/4UjxLWjo9/8jdTLbYDX+XS6nPxwN4G4A6QwuR+gfbF3z8jrReGbn2R7j4CGHbV6EAx33oA0j5iiOurOUOzoP00iTOkDcmYMfNLKWMzXsTCk6bYIvVsngGDjR/zcEg3RVod8g9KDiaBiADYLMPtnM1cKhDhtmRR1dFMkdlJUNzrLUe7fKfV5iRWsUqW3bak+kFDE4gRMuo0ChI7NMTQZfYSBC1A8J+JVirpkXC+azhcQwbiuSL8T4XAC6tJOJvri/bBae1Z5Icxvt5elUmynVuQS7AS6y4MynNyhzZXx+02J52dZToJHolZKIb0oWIzbSPvuzFfL1vztS9RpAFA3mYKFz/dg7dJyGcOs0Oeqx7OasfHYtOUjvjKoP+u11ddWhBop5raMhlfy9qOQfgsvrI874VVGqRkOhXFEn2KetwRPO1PX78+Za6AjbUcNg+RU0KmHIGzI5spkZHd96GB5KiQjwgslLEB+wQCV200fzVkxBpC+zVUO0BzgXxoDxHxvyJkSq8uY4Affd1XwNPIwX1Ui+r7XArtjF/Dg=
+env:
+  global:
+  - TRAVIS_COMPILER: arm-none-eabi-gcc
+  - CC: arm-none-eabi-gcc
+  - LD: arm-none-eabi-ld
+  - CROSS_COMPILE: arm-none-eabi-
+script:
+- wget -O gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 "https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2?revision=ca0cbf9c-9de2-491c-ac48-898b5bbc0443&la=en&hash=68760A8AE66026BCF99F05AC017A6A50C6FD832A"
+- tar xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
+- export PATH=$PWD/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
+- make clean
+- build-wrapper-linux-x86-64 --out-dir bw-output make all
+- sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output -Dsonar.projectKey=h2lab_leia-solo-firmware -Dsonar.organization=h2lab -Dsonar.login=4bedf166a821a1fd7e231d7ecb34883758c40029
+notifications:
+  email: false
