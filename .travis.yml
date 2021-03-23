@@ -5,6 +5,7 @@ addons:
       - gcc-arm-none-eabi
       - make
       - gcc
+      - build-essential
   sonarcloud:
     organization: "h2lab"
     token:
