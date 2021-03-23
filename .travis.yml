@@ -13,20 +13,19 @@ addons:
   sonarcloud:
     organization: h2lab
     token:
-      secure: DB6hStf7iewNO20/Owe4RvtwVmavCj9q1mh/x3yGfCqZiXeJnap9CxqLZG3pQo9GBfgAZ/wIukbKrYn+oW7hv4vTTJFRKbxXpSIKSiUJX51MN3EcSZyqQ4RwQnR2ufGK09afZ2GoRtU/SXrMks8okEg2fMMcVu3uJRrzu6Tx5FzOTQHO4b6o8R7ZA8VSRJxQP4wYd679I5N/tTJOFzbbMmS/Rx/mJV49alwiQRH9A5pxFNRnrrUhee2PDs5ijWwlwal9+e/6uqAu6DDWxVCzlV0rcTct+9m8a3gWcyPeAbxhV3jimY7HrA9XtvbV2udNUr1al5rbW/4O3x++kU8AiAE/VMFF2JD2lGo9KFjKpbceWYOQFQqSq/sdFiinJlfINDV3pnBV2JBUgAfWGD3NzQpbSxkdiI90z7KSeR7HYy7ne0M60ARbscDJBf+k9wMXe7GSVMdaqZTrjaGr8t2y0e5CkZrAthiNevKrKKHK/uosQ1b93F3UK7Npn8j6eLSGCR7DMx8QoLbE0nGyf+bkHULjom0tDfCLOff9TPigT8M62SXNLrl/a3nT4zeljFQdM5C15r/3WEe3a9TL7/1y82Z9rgFVBLjB7NAh83JRej2V5l87j4GX6GrxApL6t2LcXbUFjDDKQVqwqcF3lFo41/X2inf/5Irjlc0VvFILHv0=
+      secure: McSAti9uRUbPbWYFrfBXnuOGc9KSenPr/c3SuQzV5DI775DuZYrB2FoqUVdU/cjSKtVQWqqnabQPLmHUe5yD3pBMMNhVLt1uvxw+k1BxOJBsmBnqR++bq9oLvcHGHie8JHGAVQo/4UjxLWjo9/8jdTLbYDX+XS6nPxwN4G4A6QwuR+gfbF3z8jrReGbn2R7j4CGHbV6EAx33oA0j5iiOurOUOzoP00iTOkDcmYMfNLKWMzXsTCk6bYIvVsngGDjR/zcEg3RVod8g9KDiaBiADYLMPtnM1cKhDhtmRR1dFMkdlJUNzrLUe7fKfV5iRWsUqW3bak+kFDE4gRMuo0ChI7NMTQZfYSBC1A8J+JVirpkXC+azhcQwbiuSL8T4XAC6tJOJvri/bBae1Z5Icxvt5elUmynVuQS7AS6y4MynNyhzZXx+02J52dZToJHolZKIb0oWIzbSPvuzFfL1vztS9RpAFA3mYKFz/dg7dJyGcOs0Oeqx7OasfHYtOUjvjKoP+u11ddWhBop5raMhlfy9qOQfgsvrI874VVGqRkOhXFEn2KetwRPO1PX78+Za6AjbUcNg+RU0KmHIGzI5spkZHd96GB5KiQjwgslLEB+wQCV200fzVkxBpC+zVUO0BzgXxoDxHxvyJkSq8uY4Affd1XwNPIwX1Ui+r7XArtjF/Dg=
 env:
   global:
   - TRAVIS_COMPILER: arm-none-eabi-gcc
   - CC: arm-none-eabi-gcc
   - LD: arm-none-eabi-ld
   - CROSS_COMPILE: arm-none-eabi-
-  - secure: KM0Hk9WmVz2hSo0IRMLoGBwCtBMd4tOZXLv80bduUOKT1Y/GplmQYnzEC4dtawVYxre/SV2aIreucFFTnUQW6XWjVtR9dBMG/4bjGjm/Ffjwc4ss45tCqNj+tG9m+c6hOOcA4IRpVmZYjsWt5USMX7vQdVyAZX4U7Xu76ixQplyqvmL2I9BQmeaFbByZl2njpVQYj2gsKZlYUf7lacAr3ndAKvL+rerKCBQ8HvDddpz8E/ovysn/ES6FBv1q2dBLOr4ZG+oKdnhRcRaBHUY6hH8tDSw3GA0+FfcaAm8fBWfd86tDTqzAVck7Fql80MbIbUU8ac18L2uDCel4Gqd/HM6OmqeodZ2XEwHgCEjsNqsB3Ak2lR7CACMlLJ5h8JoUjsX+7irclw9QbcAkV1NQawuDwAl5Ua1jZ79hBDoujIaYQUgjrK5ONf3SMwqRRi9hlMO2rI7KhQXd5wZ5bQSLxH7CqE6g/qg/3sWSG1HivIwAKRjwrNVQObRXVV3Px4Z7p6jFn6J6GwNd655dhZN1jQ55xocKLOUicNx/NB12fXixQQJHhGbViClSq2l5FfdM36hlPCN/0RN+N0Q/syutyFAWWBHmAX9yvrht9Nxg4O9QEWzYqY4mwxjM8rkht8m3VINBrRxP6WAqw/E9EOF7SHdNjMoz1AmvLbUIOnbhVY0=
 script:
 - wget -O gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 "https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2?revision=ca0cbf9c-9de2-491c-ac48-898b5bbc0443&la=en&hash=68760A8AE66026BCF99F05AC017A6A50C6FD832A"
 - tar xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 - export PATH=$PWD/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
 - make clean
 - build-wrapper-linux-x86-64 --out-dir bw-output make all
-- sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output -Dsonar.projectKey=h2lab_leia-solo-firmware -Dsonar.organization=h2lab -Dsonar.login=${SONAR_TOKEN}
+- sonar-scanner -Dsonar.cfamily.build-wrapper-output=bw-output -Dsonar.projectKey=h2lab_leia-solo-firmware -Dsonar.organization=h2lab -Dsonar.login=4bedf166a821a1fd7e231d7ecb34883758c40029
 notifications:
   email: false
