@@ -9,7 +9,6 @@ addons:
       - build-essential
       - libc6-dev
       - libgcc1
-      - libstdc++6-dev
   sonarcloud:
     organization: "h2lab"
     token:
