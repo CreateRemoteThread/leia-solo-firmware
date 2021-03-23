@@ -3,12 +3,13 @@ addons:
   apt:
     update: true
     packages:
-      - gcc-arm-none-eabi
       - make
       - gcc
       - build-essential
       - libc6-dev
       - libgcc1
+      - wget
+      - bzip2
   sonarcloud:
     organization: "h2lab"
     token:
@@ -24,6 +25,9 @@ env:
     - CROSS_COMPILE: arm-none-eabi-
 
 script:
+  - wget -O gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2 "https://developer.arm.com/-/media/Files/downloads/gnu-rm/10-2020q4/gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2?revision=ca0cbf9c-9de2-491c-ac48-898b5bbc0443&la=en&hash=68760A8AE66026BCF99F05AC017A6A50C6FD832A"
+  - tar xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
+  - export PATH=$PWD/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
   - make clean
   # Wraps the compilation with the Build Wrapper to generate configuration (used
   # later by the SonarScanner) into the "bw-output" folder
