@@ -1,8 +1,10 @@
-before_install:
-  - sudo apt-get -y install gcc-arm-none-eabi
 addons:
   apt:
     update: true
+    packages:
+      - gcc-arm-none-eabi
+      - make
+      - gcc
   sonarcloud:
     organization: "h2lab"
     token:
