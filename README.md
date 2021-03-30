@@ -111,7 +111,8 @@ for ARM v7m (Cortex-M) microcontrollers.
 The other required dependencies are mainly for flashing the firmware, and will depend
 on the board you target:
   - For LEIA boards where the DFU protocol can be used, the `dfu-util` tool must
-  be installed and used (this should be packaged in your distro).
+  be installed and used (this should be packaged in your distro). You will also need
+  the `python3-usb` (either from your distro packages or from `pip`).
   - For the other boards where SWD is used to flash the firmware, the `st-flash`
   tool is necessary. This is packaged on some distros, but can also be compiled from
   sources. An alternative way of flashing firmwares using SWD is to use `openocd`, this
@@ -257,6 +258,10 @@ default (`USB=1`), protocol and debug communication channels use the USB FS
 (Full Speed) connector and show up as `/dev/ttyACMx` and `/dev/ttyACMy` devices
 on the PC host side. Usually, `/dev/ttyACMx` is the protocol console and 
 `/dev/ttyACMy` is the debug console when x < y.
+
+**WARNING: beware that some services such as `modemmanager` might interfere with
+the boards proper functionning when they see `/dev/ttyACMx`. You will have to manually
+disable such packages for the LEIA firmware nominal usage.**
 
 # The flasher mode
 
