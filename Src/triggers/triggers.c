@@ -89,6 +89,7 @@ void delayed_triggers_handler(void)
                       strategies[j].cnt_trigged[k]++;
                       strategies[j].event_time[k] = microssec_time;
                       strategies[j].apply_delay[k] = 0;
+                      trig_IO();
                   }
             }
         }
