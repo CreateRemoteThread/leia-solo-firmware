@@ -115,9 +115,11 @@ int trigger_init_IO()
     LL_GPIO_ResetOutputPin(TRIG_CW_GPIO_PORT, TRIG_CW_GPIO_PIN);
 #endif
     /* Regiter our callback */
+    /*
     if(register_systick_user_callback(delayed_triggers_handler)){
         return 1;
     }
+    */
 
     return 0;
 }
@@ -176,9 +178,18 @@ static inline int cmp(trigger_strategy_t* s, uint32_t trign, uint32_t delay)
                 return 0;
             }
             else{
-                /* the delay in milliseconds to apply for this specific trigger */
-                s->apply_delay[i] = (platform_get_microseconds_ticks() / 1000) + delay;
-                return 1;
+                if(s->apply_delay[i] == delay)
+                {
+                  s->list_trigged[i] |= trign;
+                  s->cnt_trigged[i]++;
+                  s->event_time[i] = platform_get_microseconds_ticks();
+                  s->apply_delay[i] = 0;
+                  return 0;
+                }
+                else{
+                  s->apply_delay[i] += 1;
+                  return 1;
+                }
             }
         }
     }

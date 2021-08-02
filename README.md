@@ -1,6 +1,10 @@
 
 [![GitHub license](https://img.shields.io/github/license/h2lab/leia-solo-firmware)](https://github.com/h2lab/leia-solo-firmware/blob/master/LICENSE.bsd3) ![Build status](https://github.com/h2lab/leia-solo-firmware/actions/workflows/main.yml/badge.svg) [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=h2lab_leia-solo-firmware&metric=alert_status)](https://sonarcloud.io/dashboard?id=h2lab_leia-solo-firmware)
 
+# NOTICE
+
+This fork critically modifies the delay functionality to work more like a "skip". The reason is because the millisecond count method is too inaccurate imo for attacking live targets.
+
 # LEIA Firmware
 
 This repository hosts the source code files of the LEIA firmware. With them, 
